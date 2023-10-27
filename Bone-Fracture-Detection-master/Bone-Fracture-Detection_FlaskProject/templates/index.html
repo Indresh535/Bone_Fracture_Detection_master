@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BONE DEFORMITY IDENTIFICATION </title>
+    <link href="{{ url_for('static', filename='styles/bootstrap_5.3.1.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <a class="navbar-brand" href="/">
+          <img src="/static/images/bone-fracture.png" width="80" height="50" class="d-inline-block mx-4" alt="bone">
+          <b>BONE DEFORMITY IDENTIFICATION </b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="d-flex flex-row-reverse collapse navbar-collapse mx-4" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="predict">Predict</a>
+              </li>
+            </ul>
+          </div>
+    </nav>
+    <div class="container">
+    <form>
+        <div class="card my-4 p-2 d-flex justify-content-center aliggn-items-center">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Introduction</h2>
+                    <p>There are 700,000 rheumatoid arthritis (RA) sufferers in India, and this number rises by 30,000 per year. RA-related joint deterioration causes discomfort, decreased joint function, joint degeneration, and joint deformity. Early intervention enhances the prognosis, however it is crucial to accurately gauge the rate of RA progression and recommend the best course of action.X- rays of the hand or foot are used in the diagnosis of RA. The modified Total Sharp (mTS) score is utilized to assess joint space narrowing (JSN) and erosion in the 32 hand joints and 12 foot joints. The 4 grades of the JSN score and the 5 grades of the abrasion score are personally assigned to each joint by orthopedic doctors.</p>
+                 </div>
+           </div>
+           <div class="row">
+                <div class="col-12">
+                    <h2>Aim</h2>
+                    <p>The effectiveness of a fully automated joint detection and mTS score calculation method is assessed in this study. Additionally, we see a specific stage of performance increase by artificially rotating and gamma correcting the training image. For clinical application, we additionally evaluate total MtS and information about estimated scores.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h2>Objective</h2>
+                    <ul>
+                        <li>The study objective of this is to evaluate a fully automated finger jointidentification and MTs score estimate method.</li>
+                        <li>In addition, by artificially rotating and gamma-correcting the training image, we observe an increase in performance at a particular level.</li>
+                        <li>In addition, we assess total mTS and information on anticipated scores for clinical application.</li>
+                    </ul>
+                </div>
+            </div>
+           <div class="row">
+                <div class="col-12">
+                    <h2>System Implementation</h2>
+                    <p>Illustrates the method's phases in straightforward terms. An x-ray picture is provided as contribution to the main stage. This X-ray picture is grayscaled, and the PSNR value is calculated. is tested, andit is shown that conservative filtering performs best when compare to others filtering strategies, as seen by greater PSNR value it achieves across all photos. Then, the filtered picture is put into the segmentation process, where clever edge detection is used and produces the best results when compared to Sobel and Perwitt. Features like mean and median are taken from the segmented image's texture. These textural characteristics are fed into several neural networks, including CNN.</p>
+                    <img src="/static/images/System_Implementation.jpg" width="280" height="250" class="img-fluid" alt="System_Implementation.jpg">
+                </div>
+           </div>
+        </div>
+    </form>
+    </div>
+    
+    <script src="{{ url_for('static', filename='styles/bootstrap_5.3.1.js') }}"></script>
+</body>
+</html>

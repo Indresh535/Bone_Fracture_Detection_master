@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BONE DEFORMITY IDENTIFICATION </title>
+    <link href="{{ url_for('static', filename='styles/bootstrap_5.3.1.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <a class="navbar-brand" href="/">
+          <img src="/static/images/bone-fracture.png" width="80" height="50" class="d-inline-block mx-4" alt="bone">
+          <b>BONE DEFORMITY IDENTIFICATION </b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="d-flex flex-row-reverse collapse navbar-collapse mx-4" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="predict">Predict</a>
+              </li>
+            </ul>
+          </div>
+    </nav>
+    <div class="container">
+    <h3>Predict Bone Fracture</h3>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <div class="card m-2 p-2">
+            <div class="my-3 col-3">
+                <label for="file" class="form-label">Upload Image</label>
+                <input type="file" class="form-control" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+              </div>  
+            <div class="card-body">      
+                <button type="submit" class="btn btn-primary">Detect Fracture</button>
+            </div>
+        </div>
+    </form>
+        <div  class="card m-2 p-2">
+            <div class="row">
+                <div class="col-6 d-flex justify-content-center aliggn-items-center">
+                    <div class="image-container">
+                        {% if danger_points %}
+                        <h3>Danger Points:</h3>
+                        <ul>
+                            {% for point in danger_points %}
+                            <li>{{ point }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %} 
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-center aliggn-items-center">
+                    <div class="image-container">
+                        {% if prediction_result %}
+                        <h3>Processed Image:</h3>
+                        <img src="{{ url_for('static', filename='/Predicted_Output_Images/Predicted_Output_Images.jpg') }}" alt="Processed Image" class="img-fluid mt-2">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    {% if prediction_result %}
+                    <h3>Prediction Result: <br/><b class="text-primary">{{ prediction_result }}</b></h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+</div>    
+    
+    <script src="{{ url_for('static', filename='styles/bootstrap_5.3.1.js') }}"></script>
+</body>
+</html>
